@@ -1,36 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
 import reportWebVitals from './reportWebVitals';
-import App from './App';
-import Community from './components/community';
-import Tools from './components/tools';
-import Downloads from './components/downloads';
-import Home from './components/pages/Home';
-import Sample from './components/sample';
-import Settings from './components/settings';
-import NotFound from './components/pages/404';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
+import Home from './components/Pages/Home';
+import Downloads from './components/Pages/Mod';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-  <Routes>
-    <Route path="/" element={<App />}>
-      <Route index element={<Home />} />
-      <Route path="community" element={<Community />} />
-      <Route path="home" element={<Home />} />
-      <Route path="tools" element={<Tools />} />
-      <Route path="downloads" element={<Downloads />} />
-      <Route path="settings" element={<Settings />} />
-      <Route path="sample" element={<Sample />} />
-      <Route path="*" element={<NotFound />} />
-    </Route>
-  </Routes>
-</BrowserRouter>
-);
+function Site() {
+  return (
+    <div>
+      <Header />
+      <Routes>
+        <Route exact path="/" component={Home} />
+        <Route path="/downloads" component={Downloads} />
+      </Routes>
+      <Footer />
+    </div>
+  );
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+export default Site;
+
 reportWebVitals();
