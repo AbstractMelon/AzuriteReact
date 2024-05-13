@@ -1,4 +1,4 @@
-![Github logo](azuritelogo.png)
+![Github logo](azuritereactlogo.png)
 
 # Azurite React
 
